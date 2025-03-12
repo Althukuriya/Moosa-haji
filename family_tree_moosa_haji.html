@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Tree - Moosa Haji</title>
+  <style>
+     body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2f2f2; /* Light gray background */
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #8b0000; /* Dark scarlet red for the header */
+  margin-bottom: 20px;
+}
+
+.tree {
+  max-width: 800px;
+  margin: auto;
+}
+
+.person {
+  background-color: #ffffff;
+  border: 1px solid #e0a0b0; /* Light pink border */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.person:hover {
+  background-color: #c15c80; /* Dark pink hover effect */
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.person img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid #c15c80; /* Border around the images with dark pink */
+}
+
+.person .info h3, .person .info p {
+  margin: 0;
+  color: #8b0000; /* Dark scarlet red text for person name and info */
+  transition: color 0.3s, font-family 0.3s;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 20px;
+  color: #c15c80; /* Dark pink arrow */
+  transition: transform 0.3s;
+}
+
+.person.open .arrow {
+  transform: rotate(90deg);
+}
+
+.person.open {
+  background-color: #c15c80; /* Dark pink when open */
+  color: #ffffff; /* White text when open */
+}
+
+.person.open .info h3, 
+.person.open .info p {
+  color: #ffffff; /* White text inside the box when open */
+  font-family: 'Roboto', sans-serif; /* Change font to 'Roboto' when open */
+}
+
+.children {
+  display: none;
+  padding-left: 20px;
+  border-left: 2px solid #c15c80; /* Dark pink border for children */
+}
+
+.person.open .children {
+  display: block; /* Show children when open */
+}
+
+
+  </style>
+</head>
+<body>
+
+<h2>Family Tree of Moosa Haji</h2>
+
+<div class="tree">
+  <div class="person" onclick="toggleSection('childrenList', this)">
+    <img src="https://i.ibb.co/9m43TDpL/IMG-20250312-040910.jpg" alt="Moosa Haji">
+    <div class="info">
+      <h3>Moosa Haji</h3>
+      <p>Family Patriarch</p>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+
+  <div class="children" id="childrenList">
+
+    <!-- Abobacker Family -->
+    <div class="person" onclick="toggleSection('childAbobacker', this)">
+      <div class="info">
+        <h3>Abobacker</h3>
+        <p>Son of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childAbobacker">
+      <div class="person"><div class="info"><h3>Sebeena</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Lathif</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Kaleel</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Saifudeen</h3><p>Grandson</p></div></div>
+    </div>
+
+    <!-- Mohammed Haji Family -->
+    <div class="person" onclick="toggleSection('childMohammed', this)">
+      <div class="info">
+        <h3>Mohammed Haji</h3>
+        <p>Son of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childMohammed">
+      <div class="person"><div class="info"><h3>Siddiq</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Farooq</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Fathima Faiza</h3><p>Granddaughter</p></div></div>
+    </div>
+
+    <!-- Beefathima Family -->
+    <div class="person" onclick="toggleSection('childBeefathima', this)">
+      <div class="info">
+        <h3>Beefathima</h3>
+        <p>Daughter of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childBeefathima">
+      <div class="person"><div class="info"><h3>Thaira</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Shareef</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Misriya</h3><p>Granddaughter</p></div></div>
+    </div>
+
+    <!-- Abdul Rahiman Family -->
+    <div class="person" onclick="toggleSection('childAbdulRahiman', this)">
+      <div class="info">
+        <h3>Abdul Rahiman</h3>
+        <p>Son of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childAbdulRahiman">
+      <div class="person"><div class="info"><h3>Rasheed</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Rameez</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Naima</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Naifa</h3><p>Granddaughter</p></div></div>
+    </div>
+
+    <!-- Ali Family -->
+    <div class="person" onclick="toggleSection('childAli', this)">
+      <div class="info">
+        <h3>Ali</h3>
+        <p>Son of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childAli">
+      <div class="person"><div class="info"><h3>Basheer</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Shammas</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Shamreena</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Shaz</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Shabaz</h3><p>Grandson</p></div></div>
+    </div>
+
+    <!-- Ayisha Family -->
+    <div class="person" onclick="toggleSection('childAyisha', this)">
+      <div class="info">
+        <h3>Ayisha</h3>
+        <p>Daughter of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childAyisha">
+      <div class="person"><div class="info"><h3>Rasheed</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Kairunisha</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Ramseena</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Farook</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Sabira</h3><p>Granddaughter</p></div></div>
+    </div>
+
+    <!-- Ummalima Family -->
+    <div class="person" onclick="toggleSection('childUmmalima', this)">
+      <div class="info">
+        <h3>Ummalima</h3>
+        <p>Daughter of Moosa Haji</p>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="children" id="childUmmalima">
+      <div class="person"><div class="info"><h3>Mansoor</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Ashoora</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Bushra</h3><p>Granddaughter</p></div></div>
+      <div class="person"><div class="info"><h3>Mashood</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Manaz</h3><p>Grandson</p></div></div>
+      <div class="person"><div class="info"><h3>Shana</h3><p>Granddaughter</p></div></div>
+    </div>
+<!-- Abbas Family -->
+<div class="person" onclick="toggleSection('childAbbas', this)">
+  <div class="info">
+    <h3>Abbas</h3>
+    <p>Son of Moosa Haji</p>
+  </div>
+  <span class="arrow">▶</span>
+</div>
+<div class="children" id="childAbbas">
+  <div class="person"><div class="info"><h3>Shabbas</h3><p>Grandson</p></div></div>
+  <div class="person"><div class="info"><h3>Shama</h3><p>Granddaughter</p></div></div>
+  <div class="person"><div class="info"><h3>Sajili</h3><p>Granddaughter</p></div></div>
+</div>
+
+<!-- Rukiya Family -->
+<div class="person" onclick="toggleSection('childRukiya', this)">
+  <div class="info">
+    <h3>Rukiya</h3>
+    <p>Daughter of Moosa Haji</p>
+  </div>
+  <span class="arrow">▶</span>
+</div>
+<div class="children" id="childRukiya">
+  <div class="person"><div class="info"><h3>Althaf</h3><p>Grandson</p></div></div>
+  <div class="person"><div class="info"><h3>Ajmal</h3><p>Grandson</p></div></div>
+  <div class="person"><div class="info"><h3>Adnan</h3><p>Grandson</p></div></div>
+  <div class="person"><div class="info"><h3>Ansaba</h3><p>Granddaughter</p></div></div>
+  <div class="person"><div class="info"><h3>Ahlam</h3><p>Grandson</p></div></div>
+</div>
+
+<!-- Usman Family -->
+<div class="person" onclick="toggleSection('childUsman', this)">
+  <div class="info">
+    <h3>Usman</h3>
+    <p>Head of Family</p>
+  </div>
+  <span class="arrow">▶</span>
+</div>
+<div class="children" id="childUsman">
+  <div class="person"><div class="info"><h3>Muhaz</h3><p>Granddaughter</p></div></div>
+</div>
+
+
+<script>
+  function toggleSection(childId, personElement) {
+    // Get the child container element using the provided ID
+    const childContainer = document.getElementById(childId);
+    // Toggle the 'open' class to show/hide the children
+    personElement.classList.toggle('open');
+    // Toggle the visibility of the children
+    if (childContainer) {
+      childContainer.style.display = childContainer.style.display === 'block' ? 'none' : 'block';
+    }
+  }
+</script>
+
+
+</body>
+</html>
